@@ -1,0 +1,16 @@
+{
+  "name": "nav-effect",
+  "version": "1.0.0",
+  "description": "A navigation bar with SCSS styling",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch src/assets -o src/assets"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.11.0",
+    "sass": "^1.17.3"
+  }
+}

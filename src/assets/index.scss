@@ -1,0 +1,100 @@
+$color-dark: #282828;
+$color-grey100: #888;
+$color-grey300: #f4f4f4;
+$color-active: #f7797d;
+$ease: cubic-bezier(0.73, 0.09, 0.21, 0.96);
+$time: 250ms;x
+
+/** Setup */
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  $alpha: 0.8;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  
+  background: linear-gradient(to right, rgba(#f7797d, $alpha), rgba(#FBD786, $alpha), rgba(#C6FFDD, $alpha));
+  color: $color-dark;
+  font-family: 'Open Sans',Helvetica,sans-serif;
+  line-height: 1;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+/** Demo */
+.pills {
+  padding: 80px;
+  padding-bottom: 70px;
+  padding-right: 70px;
+  background: rgba(white, 0.9);
+  border-radius: 8px;
+}
+
+.pill {
+  display: inline-flex;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  overflow: visible;
+  
+  position: relative;
+  
+  color: $color-grey100;
+  font-weight: 500;
+  
+  transition: color $ease $time;
+  
+  &::before {
+		content: '';
+		width: 100%;
+		height: 100%;
+
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		border: 2px solid $color-active;
+    border-radius: 8px;
+
+		transform: scale3d(1.2, 1.2, 1);
+		opacity: 0;
+
+		pointer-events: none;
+    -webkit-font-smoothing: subpixel-antialiased;
+		transition: transform $ease $time, opacity $ease $time;
+	}
+
+  &:hover {
+    color: $color-dark;
+  }
+  
+  &.active {
+    color: $color-dark;
+    
+    &::before {
+      transform: scale3d(1, 1, 1);
+      opacity: 1;
+    }
+  }
+}
